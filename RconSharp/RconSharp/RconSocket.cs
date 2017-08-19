@@ -107,7 +107,7 @@ namespace RconSharp.Net45
 		{
 			if (_client != null && _client.Connected)
 			{
-				_client.Close();
+				_client.Dispose();
 				_client = null;
 			}
 		}
