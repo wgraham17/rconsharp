@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <PackageId>RconSharp.NetStandard</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>https://github.com/wgraham17, https://github.com/stefanodriussi</Authors>
+    <Company>Will Graham</Company>
+    <Product>RconSharp (.NET Standard)</Product>
+    <Description>rconsharp.netstandard is a port of a Valve RCON protocol implementation for .NET written in C# as a .NET Standard library.</Description>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageProjectUrl>https://github.com/wgraham17/rconsharp</PackageProjectUrl>
+    <PackageTags>rcon</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

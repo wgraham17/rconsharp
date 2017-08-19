@@ -26,12 +26,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace RconSharp.Net45
+namespace RconSharp
 {
 	/// <summary>
 	/// .NET 4.5 implementation of <see cref="INetworkSocket"/> interface
 	/// </summary>
-	public class RconSocket : INetworkSocket
+	internal class RconSocket : INetworkSocket, IDisposable
 	{
 		private TcpClient _client;
 
@@ -105,12 +105,20 @@ namespace RconSharp.Net45
 		/// </summary>
 		public void CloseConnection()
 		{
-			if (_client != null && _client.Connected)
+			if (_client != null)
 			{
 				_client.Dispose();
 				_client = null;
 			}
 		}
 
-	}
+        public void Dispose()
+        {
+            if (_client != null)
+            {
+                _client.Dispose();
+                _client = null;
+            }
+        }
+    }
 }

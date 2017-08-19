@@ -23,14 +23,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using System;
 using System.Threading.Tasks;
+
 namespace RconSharp
 {
-	/// <summary>
-	/// Shared interface for the Network Socket
-	/// </summary>
-	/// <remarks>Since this is a Portable Class Library (PCL), concrete implementations of this inteface will be defined in specific assemblies targeting the different platforms</remarks>
-	public interface INetworkSocket
+    /// <summary>
+    /// Shared interface for the Network Socket
+    /// </summary>
+    /// <remarks>Since this is a Portable Class Library (PCL), concrete implementations of this inteface will be defined in specific assemblies targeting the different platforms</remarks>
+    internal interface INetworkSocket : IDisposable
 	{
 		/// <summary>
 		/// Connect the socket to the remote endpoint

@@ -30,20 +30,16 @@ namespace RconSharp
 	/// <summary>
 	/// Rcon protocol messages handler
 	/// </summary>
-	public class RconMessenger
+	public class RconMessenger : IDisposable
 	{
 		private INetworkSocket _socket;
 
 		/// <summary>
 		/// Class constructor
 		/// </summary>
-		/// <param name="socket">Socket interface</param>
-		/// <remarks>Since this is a Portable Class Library, there's not a concrete implementation of the Socket class</remarks>
-		public RconMessenger(INetworkSocket socket)
+		public RconMessenger()
 		{
-			if (socket == null)
-				throw new NullReferenceException("Socket parameter must be an instance of a class implementing INetworkSocket inteface");
-			_socket = socket;
+            _socket = new RconSocket();
 		}
 
 		/// <summary>
@@ -106,5 +102,13 @@ namespace RconSharp
 		{
 			_socket.CloseConnection();
 		}
-	}
+
+        public void Dispose()
+        {
+            if (_socket != null)
+            {
+                _socket.Dispose();
+            }
+        }
+    }
 }
